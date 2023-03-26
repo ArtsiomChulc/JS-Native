@@ -138,32 +138,32 @@
 // const delUser = upd2Users.filter(user => user.id !== 5);//удаляем юзера с id = 5
 // console.log(delUser);
 
-let students = [
-	{
-		name: "Bob",
-		age: 22,
-		isMarried: true,
-		scores: 85,
-	},
-	{
-		name: "Alex",
-		age: 21,
-		isMarried: true,
-		scores: 89
-	},
-	{
-		name: "Nick",
-		age: 20,
-		isMarried: false,
-		scores: 120
-	},
-	{
-		name: "John",
-		age: 19,
-		isMarried: false,
-		scores: 100
-	}
-];
+// let students = [
+// 	{
+// 		name: "Bob",
+// 		age: 22,
+// 		isMarried: true,
+// 		scores: 85,
+// 	},
+// 	{
+// 		name: "Alex",
+// 		age: 21,
+// 		isMarried: true,
+// 		scores: 89
+// 	},
+// 	{
+// 		name: "Nick",
+// 		age: 20,
+// 		isMarried: false,
+// 		scores: 120
+// 	},
+// 	{
+// 		name: "John",
+// 		age: 19,
+// 		isMarried: false,
+// 		scores: 100
+// 	}
+// ];
 
 // C => [...st, newSt]
 // R => map (obj => JSX element)
@@ -171,59 +171,59 @@ let students = [
 // D => filter
 
 
-const getName = st => st.name;
+// const getName = st => st.name;
 
-const getNames = (array) => {
-	const result = [];
-	const getName = st => st.name;
-	for (let i = 0; i < array.length; i++) {
-		const newValue = getName(array[i]);
-		result[i] = newValue;
-	}
-	return result;
-};
+// const getNames = (array) => {
+// 	const result = [];
+// 	const getName = st => st.name;
+// 	for (let i = 0; i < array.length; i++) {
+// 		const newValue = getName(array[i]);
+// 		result[i] = newValue;
+// 	}
+// 	return result;
+// };
 
-const getScores = (array) => {
-	const result = [];
-	const getStudentsScores = st => st.scores;
-	for (let i = 0; i < array.length; i++) {
-		const newValue = getStudentsScores(array[i]);
-		result[i] = newValue;
+// const getScores = (array) => {
+// 	const result = [];
+// 	const getStudentsScores = st => st.scores;
+// 	for (let i = 0; i < array.length; i++) {
+// 		const newValue = getStudentsScores(array[i]);
+// 		result[i] = newValue;
 
-	}
+// 	}
 
-	return result;
-};
+// 	return result;
+// };
 
-const sMap = (array, func) => {
-	const result = [];
-	for (let i = 0; i < array.length; i++) {
-		const newValue = func(array[i]);
-		result[i] = newValue;
-	}
-};
+// const sMap = (array, func) => {
+// 	const result = [];
+// 	for (let i = 0; i < array.length; i++) {
+// 		const newValue = func(array[i]);
+// 		result[i] = newValue;
+// 	}
+// };
 
-console.log(students.map(getName));
-console.log(sMap(students, getName));
+// console.log(students.map(getName));
+// console.log(sMap(students, getName));
 
-const sFilter = (array, func) => {
-	const result = [];
-	for (let i = 0; i < array.length; i++) {
-		if (func(array[i]) === true) {
-			result.push(array[i]);
-		}
-	}
-	return result;
-};
+// const sFilter = (array, func) => {
+// 	const result = [];
+// 	for (let i = 0; i < array.length; i++) {
+// 		if (func(array[i]) === true) {
+// 			result.push(array[i]);
+// 		}
+// 	}
+// 	return result;
+// };
 
-console.log(sFilter(students, st => st.scores >= 100));
+// console.log(sFilter(students, st => st.scores >= 100));
 
-const sPop = (array) => {
-	const element = array.pop();
-	return element;
-};
+// const sPop = (array) => {
+// 	const element = array.pop();
+// 	return element;
+// };
 
-console.log(sPop(students));
+// console.log(sPop(students));
 
 
 // const arr = [1, 2, 3, 4];
@@ -232,10 +232,183 @@ console.log(sPop(students));
 // 	for (let i = 0; i < array.length; i++) {
 // 		if (f(array[i])) {
 // 			return array[i]; 						//! посмотреть еще раз видос!!!!
-// 		} else {
-// 			return 'no number';
 // 		}
 // 	}
 // };
 
-// console.log(sFind(arr, f => f[2] === 2));
+// console.log(sFind(arr, (el) => el === 4));
+
+// const sm = document.getElementById('small');
+// const md = document.getElementById('medium');
+// const big = document.getElementById('big');
+// const handler1 = () => {
+// 	alert('click');
+// };
+// const handler2 = () => {
+// 	alert('yo');
+// };
+// sm.onclick = handler1;    //! устаревший метод
+
+// sm.addEventListener('click', handler1);
+// sm.addEventListener('click', handler2);                     //!можно добавлять несколько обработчиков
+// sm.addEventListener('click', () => alert('Hey!!')); //!не можем отменить обработчик(нужно называть функцию)
+
+// sm.removeEventListener('click', handler1);
+
+// const handler4 = (e) => alert('yo!!!');
+// sm.addEventListener('click', handler1);
+// md.addEventListener('click', handler2);
+// big.addEventListener('click', handler4);
+
+// sm.addEventListener('click', (e) => {
+// 	e.stopPropagation();    //! останавливает всплытие
+// 	alert('click');
+// });
+
+// sm.addEventListener('click', (e) => {
+// 	e.stopPropagation();
+// 	if (e.target.tagName === "BUTTON") {
+// 		alert(e.target.id);
+// 	}
+// });
+
+// const link = document.getElementById('a');
+// link.addEventListener('click', (e) => {
+// 	e.preventDefault();
+// });
+
+
+
+//! == // ============//==============//========= 4 lesson =============//=============
+
+
+const td_1 = 'qw-34';
+const td_2 = 'uy-34';
+
+
+const todoLists = [
+	{
+		id: td_1,
+		title: 'Title',
+		filter: 'all',
+	},
+	{
+		id: td_2,
+		title: 'Title2',
+		filter: 'all',
+	},
+];
+
+//! ассоциативный массив - абстрактный тип данных
+
+const tasks = {
+	[td_1]: [ // key 'qw-34'
+		{ id: 1, title: "HTML", isDone: false },
+		{ id: 2, title: "CSS", isDone: false },
+		{ id: 3, title: "JS/TS", isDone: false },
+	],
+	[td_2]: [ // key 'uy-34'
+		{ id: 4, title: "Bread", isDone: false },
+		{ id: 5, title: "Milk", isDone: false },
+		{ id: 6, title: "Chicken", isDone: false },
+	]
+};
+
+const obj = {
+	name: 'Bob' // key 'name'
+};
+
+console.log(tasks[td_1]);
+console.log(tasks[td_2].filter(t => t.id !== 2));
+console.log([...tasks[td_1], { id: 10, title: 'New Task', isDone: false }]);
+
+const addTodoList = (title) => {
+	const td_id = "wh-21";
+	const newToDo = {
+		td: td_id,
+		title: title,
+		filter: 'all',
+	};
+	const updateTodoList = [...todoLists, newToDo];
+	console.log(updateTodoList);
+	const copyTasks = {
+		[td_id]: [
+			{ id: 7, title: "Nood", isDone: false }
+		],
+		...tasks,
+	};
+	console.log(copyTasks);
+};
+
+addTodoList('New todolist');
+
+//! метод мвссива reduce
+
+const nums = [2, 4, 5, 3];
+const result = nums.reduce((acc, el) => {
+	return acc + el;
+}, 0);
+
+//0, 2-> 2
+//2, 4 => 6
+//6, 5 => 11
+//11, 3 => 14
+// => 14
+
+console.log(result);
+
+const max = nums.reduce((acc, el) => {
+	if (acc >= el) {
+		return acc;
+	} else {
+		return el;
+	}
+});
+
+//2, 4 => 4
+//4, 5 => 5
+//5, 3 => 5
+// => 5
+
+console.log(max);
+
+let students = [
+	{
+		id: 1,
+		name: "Bob",
+		age: 22,
+		isMarried: true,
+		scores: 85
+	},
+	{
+		id: 2,
+		name: "Alex",
+		age: 21,
+		isMarried: true,
+		scores: 89
+	},
+	{
+		id: 3,
+		name: "Nick",
+		age: 20,
+		isMarried: false,
+		scores: 120
+	},
+	{
+		id: 4,
+		name: "John",
+		age: 26,
+		isMarried: false,
+		scores: 100
+	}
+];
+
+const mapNames = students.map(el => el.name);
+
+const reduceNames = students.reduce((newArr, el) => {
+	newArr.push(el.name);
+	return newArr;
+}, []);
+
+console.log(mapNames);
+console.log(reduceNames);
