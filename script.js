@@ -282,133 +282,249 @@
 //! == // ============//==============//========= 4 lesson =============//=============
 
 
-const td_1 = 'qw-34';
-const td_2 = 'uy-34';
+// const td_1 = 'qw-34';
+// const td_2 = 'uy-34';
 
 
-const todoLists = [
+// const todoLists = [
+// 	{
+// 		id: td_1,
+// 		title: 'Title',
+// 		filter: 'all',
+// 	},
+// 	{
+// 		id: td_2,
+// 		title: 'Title2',
+// 		filter: 'all',
+// 	},
+// ];
+
+// //! ассоциативный массив - абстрактный тип данных
+
+// const tasks = {
+// 	[td_1]: [ // key 'qw-34'
+// 		{ id: 1, title: "HTML", isDone: false },
+// 		{ id: 2, title: "CSS", isDone: false },
+// 		{ id: 3, title: "JS/TS", isDone: false },
+// 	],
+// 	[td_2]: [ // key 'uy-34'
+// 		{ id: 4, title: "Bread", isDone: false },
+// 		{ id: 5, title: "Milk", isDone: false },
+// 		{ id: 6, title: "Chicken", isDone: false },
+// 	]
+// };
+
+// const obj = {
+// 	name: 'Bob' // key 'name'
+// };
+
+// console.log(tasks[td_1]);
+// console.log(tasks[td_2].filter(t => t.id !== 2));
+// console.log([...tasks[td_1], { id: 10, title: 'New Task', isDone: false }]);
+
+// const addTodoList = (title) => {
+// 	const td_id = "wh-21";
+// 	const newToDo = {
+// 		td: td_id,
+// 		title: title,
+// 		filter: 'all',
+// 	};
+// 	const updateTodoList = [...todoLists, newToDo];
+// 	console.log(updateTodoList);
+// 	const copyTasks = {
+// 		[td_id]: [
+// 			{ id: 7, title: "Nood", isDone: false }
+// 		],
+// 		...tasks,
+// 	};
+// 	console.log(copyTasks);
+// };
+
+// addTodoList('New todolist');
+
+// //! метод мвссива reduce
+
+// const nums = [2, 4, 5, 3];
+// const result = nums.reduce((acc, el) => {
+// 	return acc + el;
+// }, 0);
+
+// //0, 2-> 2
+// //2, 4 => 6
+// //6, 5 => 11
+// //11, 3 => 14
+// // => 14
+
+// console.log(result);
+
+// const max = nums.reduce((acc, el) => {
+// 	if (acc >= el) {
+// 		return acc;
+// 	} else {
+// 		return el;
+// 	}
+// });
+
+// //2, 4 => 4
+// //4, 5 => 5
+// //5, 3 => 5
+// // => 5
+
+// console.log(max);
+
+// let students = [
+// 	{
+// 		id: 1,
+// 		name: "Bob",
+// 		age: 22,
+// 		isMarried: true,
+// 		scores: 85
+// 	},
+// 	{
+// 		id: 2,
+// 		name: "Alex",
+// 		age: 21,
+// 		isMarried: true,
+// 		scores: 89
+// 	},
+// 	{
+// 		id: 3,
+// 		name: "Nick",
+// 		age: 20,
+// 		isMarried: false,
+// 		scores: 120
+// 	},
+// 	{
+// 		id: 4,
+// 		name: "John",
+// 		age: 26,
+// 		isMarried: false,
+// 		scores: 100
+// 	}
+// ];
+
+// const mapNames = students.map(el => el.name);
+
+// const reduceNames = students.reduce((newArr, el) => {
+// 	newArr.push(el.name);
+// 	return newArr;
+// }, []);
+
+// console.log(mapNames);
+// console.log(reduceNames);
+
+
+//! ===========//=========//========//======lesson 5======//======//=====//===========//============
+
+//!метод sort
+
+const names = ["Donald", "Alex", "Bob"];
+
+console.log(names.sort()); // сщртирует строки из коробки, т.е. без доп.параметров
+
+const names_2 = ["Donald", "alex", "AlEx", "Игорь", "Юрий"];
+console.log(names_2.sort()); //строки сортируются ТИПО по алфавиту (unicode)
+
+console.log(names); //работает мутабельно (сортирует массив на месте)
+
+console.log(names.sort() === names); //возвращает ссылку на исходный массив
+
+const nums = [1000, 333, 9, 77, -3];
+
+console.log(nums.sort()); //для всех остальных случаев необходимо параметром передать функцию сравнения
+
+// const compFunc = (a, b) => {    // по возрастанию
+// 	if (a > b) { // надо поменять местами (берем 1000 и 333)
+// 		return 1;
+// 	} else {
+// 		return -1;
+// 	}
+// };
+
+// const compFunc = (a, b) => a - b;
+
+console.log(nums.sort((a, b) => a - b));
+console.log(nums.sort((a, b) => b - a));
+console.log(nums.reverse());
+// функция должна возвращать число большее или меньшее нуля
+
+const students = [
 	{
-		id: td_1,
-		title: 'Title',
-		filter: 'all',
-	},
-	{
-		id: td_2,
-		title: 'Title2',
-		filter: 'all',
-	},
-];
-
-//! ассоциативный массив - абстрактный тип данных
-
-const tasks = {
-	[td_1]: [ // key 'qw-34'
-		{ id: 1, title: "HTML", isDone: false },
-		{ id: 2, title: "CSS", isDone: false },
-		{ id: 3, title: "JS/TS", isDone: false },
-	],
-	[td_2]: [ // key 'uy-34'
-		{ id: 4, title: "Bread", isDone: false },
-		{ id: 5, title: "Milk", isDone: false },
-		{ id: 6, title: "Chicken", isDone: false },
-	]
-};
-
-const obj = {
-	name: 'Bob' // key 'name'
-};
-
-console.log(tasks[td_1]);
-console.log(tasks[td_2].filter(t => t.id !== 2));
-console.log([...tasks[td_1], { id: 10, title: 'New Task', isDone: false }]);
-
-const addTodoList = (title) => {
-	const td_id = "wh-21";
-	const newToDo = {
-		td: td_id,
-		title: title,
-		filter: 'all',
-	};
-	const updateTodoList = [...todoLists, newToDo];
-	console.log(updateTodoList);
-	const copyTasks = {
-		[td_id]: [
-			{ id: 7, title: "Nood", isDone: false }
-		],
-		...tasks,
-	};
-	console.log(copyTasks);
-};
-
-addTodoList('New todolist');
-
-//! метод мвссива reduce
-
-const nums = [2, 4, 5, 3];
-const result = nums.reduce((acc, el) => {
-	return acc + el;
-}, 0);
-
-//0, 2-> 2
-//2, 4 => 6
-//6, 5 => 11
-//11, 3 => 14
-// => 14
-
-console.log(result);
-
-const max = nums.reduce((acc, el) => {
-	if (acc >= el) {
-		return acc;
-	} else {
-		return el;
-	}
-});
-
-//2, 4 => 4
-//4, 5 => 5
-//5, 3 => 5
-// => 5
-
-console.log(max);
-
-let students = [
-	{
-		id: 1,
 		name: "Bob",
 		age: 22,
 		isMarried: true,
-		scores: 85
+		scores: 95
 	},
 	{
-		id: 2,
 		name: "Alex",
-		age: 21,
+		age: 24,
 		isMarried: true,
 		scores: 89
 	},
 	{
-		id: 3,
+		name: "Helge",
+		age: 24,
+		isMarried: true,
+		scores: 90
+	},
+	{
 		name: "Nick",
 		age: 20,
 		isMarried: false,
 		scores: 120
 	},
 	{
-		id: 4,
 		name: "John",
-		age: 26,
+		age: 19,
 		isMarried: false,
-		scores: 100
-	}
+		scores: 121
+	},
+	{
+		name: "alex",
+		age: 22,
+		isMarried: true,
+		scores: 89
+	},
 ];
 
-const mapNames = students.map(el => el.name);
+const sortStudents = (a, b) => {
+	if (a.name.toLowerCase() > b.name.toLowerCase()) {
+		return 10;
+	} else {
+		return -10;
+	}
+};
 
-const reduceNames = students.reduce((newArr, el) => {
-	newArr.push(el.name);
-	return newArr;
-}, []);
+// console.log(students.sort(sortStudents));
+console.log(students.sort((a, b) => a.name.localeCompare(b.name))); //сортировка по строковым значениям
 
-console.log(mapNames);
-console.log(reduceNames);
+console.log(students.sort((a, b) => a.age - b.age)); //сортировка по числовым значениям
+
+// bubble sort //!======////===///===/// сортировка пузырьком
+
+const nums_2 = [100, 333, 999, 77, -3];
+let count = 0;
+let replace = 0;
+
+for (let j = 0; j < nums_2.length - 1; j++) {
+	let isSorted = true;
+	for (let i = 0; i < nums_2.length - 1 - j; i++) {
+		count++;
+		if (nums_2[i] > nums_2[i + 1]) {
+			replace++;
+			// let temp = nums_2[i + 1];
+			// nums_2[i + 1] = nums_2[i];
+			// nums_2[i] = temp;
+			isSorted = false;
+			[nums_2[i], nums_2[i + 1]] = [nums_2[i + 1], nums_2[i]]
+		}
+	}
+	if (isSorted) break;
+}
+
+
+
+console.log(count);
+console.log(replace);
+console.log(nums_2);
+
